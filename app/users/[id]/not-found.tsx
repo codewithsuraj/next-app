@@ -1,7 +1,7 @@
 import React from "react";
 
 const UserNotFoundPage = () => {
-  return <div>This user doesn't exists.</div>;
+  return <div>This user does not exists.</div>;
 };
 
 export default UserNotFoundPage;
