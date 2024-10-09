@@ -3,6 +3,7 @@
         "cloudinary",
         "daisyui",
         "nextauth",
-        "signin"
+        "signin",
+        "signout"
     ]
 }
