@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import suraj from "@/public/images/suraj.jpg";
+import { Metadata } from "next";
 
 export default async function Home() {
   return (
@@ -27,4 +28,22 @@ export default async function Home() {
       <h1>Hello World</h1>
     </main>
   );
+}
+
+// export const metadata: Metadata = {
+//   title: "...",
+//   description: "...",
+//   openGraph: {
+//     title: "...",
+//     description: "...",
+//   },
+// };
+
+export async function generateMetadata(): Promise<Metadata> {
+  const product = fetch("");
+
+  return {
+    title: "product.title",
+    description: "product.description",
+  };
 }
