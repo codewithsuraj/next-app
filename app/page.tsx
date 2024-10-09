@@ -1,49 +1,22 @@
-import Image from "next/image";
+"use client";
 
-import suraj from "@/public/images/suraj.jpg";
-import { Metadata } from "next";
+import { useState } from "react";
+// import HeavyComponent from "./components/HeavyComponent";
+import dynamic from "next/dynamic";
+const HeavyComponent = dynamic(() => import("./components/HeavyComponent"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
 
-export default async function Home() {
+export default function Home() {
+  const [isVisible, setVisible] = useState(false);
+
   return (
-    <main className="relative h-screen">
-      {/* <Image src={suraj} alt="Srk" /> */}
-      {/* <Image
-        src="https://bit.ly/react-cover"
-        alt="Srk"
-        width={300}
-        height={170}
-      /> */}
-
-      {/* <Image
-        src="https://bit.ly/react-cover"
-        alt="Srk"
-        fill
-        className="object-cover"
-        // sizes="100vw"
-        sizes="(max-width: 480px) : 100vw, (max-width: 768px) : 50vw, 33vw"
-        quality={75}
-        priority
-      /> */}
-
+    <main>
       <h1>Hello World</h1>
+
+      <button onClick={() => setVisible(true)}>Show</button>
+      {isVisible && <HeavyComponent />}
     </main>
   );
-}
-
-// export const metadata: Metadata = {
-//   title: "...",
-//   description: "...",
-//   openGraph: {
-//     title: "...",
-//     description: "...",
-//   },
-// };
-
-export async function generateMetadata(): Promise<Metadata> {
-  const product = fetch("");
-
-  return {
-    title: "product.title",
-    description: "product.description",
-  };
 }
